@@ -20,11 +20,7 @@ while True:
                 break
         elif event == "Odd or Even?":
                 try:
-                        number = int(values[0])
-                        if number % 2 == 0:
-                                sg.popup("You entered an even number!")
-                        elif number % 2 == 1:
-                                sg.popup("You entered an odd number!")
+                        sg.popup_yes_no("Can you even see me?")
                 except ValueError:
                         sg.popup("Please enter a valid Integer!")
 window.close()
