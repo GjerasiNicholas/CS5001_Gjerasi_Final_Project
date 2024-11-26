@@ -1,9 +1,8 @@
 import subprocess
-import os
-import sys
 
 
-def ffmpeg_conversion(audio_files: list, container: str,output_name: str):
+
+def ffmpeg_conversion(audio_files: list, output_name: str):
     '''
     Goal of this function is to get a list of audio files that were selected from the GUI and convert them to a
     specific container type that was also selected from a drop-down on the GUI. Input audio files can be almost
@@ -17,20 +16,26 @@ def ffmpeg_conversion(audio_files: list, container: str,output_name: str):
     
     
     '''
+    acceptable_files = ["mp3","m4a","m4b","aac"]
+    
+    container = audio_files[0][-3:] #Gets the container of the first file. Used to validate others later
+
+    for i in audio_files:
+        if not i[-3:] in acceptable_files:
+            raise ValueError(f'The only acceptable file types in this program are: {acceptable_files}')
+
 
     with open("mylist.txt","w") as file:
         for i in audio_files:
-            file.write(f"file \'{i}\' \n")
+            if i[-3:] == container:
+                file.write(f"file \'{i}\' \n")
+            else:
+                raise ValueError("You selected files of multiple types. Please keep your selection to files of the same type.")
 
-    if container == "mp3" or container =="m4a" or container =="m4b":
-        subprocess.run([
+    subprocess.run([
 
-            "ffmpeg","-y", "-f","concat","-safe","0","-i","mylist.txt","-c","copy",f"Output/{output_name}.{container}"
+        "ffmpeg","-y", "-f","concat","-safe","0","-i","mylist.txt","-c","copy",f"Output/{output_name}.{container}"
 
-        ])
-    else:
-        raise ValueError("You have entered an invalid container...")
-        
+    ])
 
-
-ffmpeg_conversion(["Audio/artofwar.m4a","Audio/artofwar1.m4a"],"m4a","bigfunctionoutput")
+    
