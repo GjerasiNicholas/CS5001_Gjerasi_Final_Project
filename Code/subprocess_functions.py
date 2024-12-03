@@ -13,12 +13,14 @@ def ffmpeg_conversion(audio_files: list, output_name: str):
         -MP3
         -M4A
         -M4B
+        -aac
     
     
     '''
     acceptable_files = ["mp3","m4a","m4b","aac"]
-    
-    container = audio_files[0][-3:] #Gets the container of the first file. Used to validate others later
+
+    #Gets the container of the first file. All files must share formate so this will serve as a check.
+    container = audio_files[0][-3:] 
 
     for i in audio_files:
         if not i[-3:] in acceptable_files:
