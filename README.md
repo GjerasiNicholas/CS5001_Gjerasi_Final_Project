@@ -10,9 +10,6 @@ List of documentation, articles, and other guides that I used to help me put thi
 - [Six](https://trac.ffmpeg.org/wiki/Concatenate)
 
 
-## Instructions
-
-
 # Final Project Report
 
 * Student Name: Nicholas Gjerasi
@@ -70,12 +67,61 @@ Running the program is straightforward. The steps are as follows:
     -ffmpeg is now installed, to make life easier we will set it as a PATH variable. This is best shown with screenshots. This source (https://techtactician.com/how-to-install-ffmpeg-and-add-it-to-path-on-windows/) has a detailed explaination with screenshots. Begin at step 4 as steps 1-3 were completed above.
 
 ## Code Review
-Go over key aspects of code in this section. Both link to the file, include snippets in this report (make sure to use the [coding blocks](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code)).  Grading wise, we are looking for that you understand your code and what you did. 
+
+```python 
+
+subprocess.run([
+
+        "ffmpeg","-y", "-f","concat","-safe","0","-i","mylist.txt","-c","copy",f"Output/{output_name}.{container}"
+
+    ])
+
+```
+
+-This snippet of code is what allowed me to overcome the issue of PyDub libary not supporting common audiobook formats. The ```run```function in the subprocess library allows me to execute commands that would normally have to be typed out in the terminal. All I needed to do was format it in such a way that allowed me to dynamically set some of the arguments based on what was passed by the user. This is why I use an f-string for the final argument passed because we want to make sure the name and container are dynamic. The ```Output/``` is just so I can ensure it always goes into the right directory after processing is complete.
+
+
+```python
+
+layout = [  [sg.Text("Select Files to Concatenate (Acceptable types: mp3, m4a, m4b, aac)")],
+            [sg.Text("Enter Book Name:"),sg.Input(key ="-TITLE-",size=(20,10))],
+            [sg.LBox([], size=(100,20), key='-FILESLB-')],
+            [sg.Input(visible=False, enable_events=True, key='-IN-'), sg.FilesBrowse()],
+            [sg.Button('Run'), sg.Button('Exit')]  
+        ]
+
+```
+This snippet of code was more annoying than complicated to create. This is the layout of our GUI and within that layout, I had to figure out from PySimpleGUI's documetation how we could store information passed by the user and reference it later (this is why we use the "key" variable). The most difficult part of this entire setup was getting the files selected by the user to actually populate within the UI. The code would work just as intended but seeing the selected files in the UI was a key part of the user validating that they had selected the correct files. The solution to this was found deep in their documentation. This required the use of "enable_events=True" to work properly; with this command in the layout, it allowed the storage of the files selected and would show them properly when initiating the UI.
+
+
+```python
+
+ if output_name == "" or output_name == None:
+        raise ValueError("Please enter a valid Title!")
+
+    for i in audio_files:
+        if not i[-3:] in acceptable_files:
+            raise ValueError(f'The only acceptable file types in this program are: {acceptable_files}')
+
+
+    with open("mylist.txt","w") as file:
+        for i in audio_files:
+            if i[-3:] == container:
+                file.write(f"file \'{i}\' \n")
+            else:
+                raise ValueError("You selected files of multiple types. Please keep your selection to files of the same type.")
+
+```
+
+This is my error handling code. This will prevent, in most situatiions, errors from being spit out by ffmpeg. These are likely to be the most common errors from a new user:
+  1. Forgetting to put in a name for the audiobook
+  2. Using an audio format that is not acceptable by ffmpeg
+  3. Trying to merge different audio types
+
 
 ### Major Challenges
-Key aspects could include pieces that your struggled on and/or pieces that you are proud of and want to show off.
 
-The largest challenge by far was the realization that the audio manipulation library "PyDub" did not support audiobook files (m4a/m4b). This project was going to be significantly more straightforward as the PyDub library wrapped ffmpeg commands in very neat methods. When I figured out this would not work I had to learn how to trigger my prompts to hit the terminal directly. 
+The largest challenge by far was the realization that the audio manipulation library "PyDub" did not support audiobook files (m4a/m4b). This project was going to be significantly more straightforward as the PyDub library wrapped ffmpeg commands into very neat functions. When I figured out this would not work I had to learn how to trigger my prompts to hit the terminal directly. 
 
 This is where the subprocess library came into play. I had to learn this library and re-start my project from the ground up basically. I think my main challenge with this library was the snytax of my code as it had to be formatted perfectly or the commands would not execute. 
 
