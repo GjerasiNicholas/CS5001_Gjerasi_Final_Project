@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 from subprocess_functions import ffmpeg_conversion
 
-sg.theme('Dark Blue 2')
+sg.theme('DarkGreen7')
 
 layout = [  [sg.Text("Select Files to Concatenate (Acceptable types: mp3, m4a, m4b, aac)")],
             [sg.Text("Enter Book Name:"),sg.Input(key ="-TITLE-",size=(20,10))],

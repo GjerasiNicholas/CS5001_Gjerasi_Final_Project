@@ -129,16 +129,34 @@ A smaller challenge, yet still quite annoying, was learning PySimpleGUI. This li
 
 
 ## Example Runs
-Explain how you documented running the project, and what we need to look for in your repository (text output from the project, small videos, links to videos on youtube of you running it, etc)
+
+I documented running this project in a youtube video! This is the simplest way to make sure the reviewer of this project is actually able to see that it does, in fact, work. Following the README should get you to a state where it works and I have tested this on 3 different computers downloading from GIT and it worked fine. The link to this video has been posted on a throwaway youtube account and the link is below!
+
+[VIDEO OF DEMO](https://youtu.be/tUEc0Z_jq98)
 
 ## Testing
-How did you test your code? What did you do to make sure your code was correct? If you wrote unit tests, you can link to them here. If you did run tests, make sure you document them as text files, and include them in your submission. 
 
-> _Make it easy for us to know you *ran the project* and *tested the project* before you submitted this report!_
+Due to the nature of my runs it is a bit difficult to record my tests as audio from many of my audiobooks is copywrited and I do not want to publish them on GitHub and get a strike on my account. I did however include a directory called "tests" where I had my dummy files that I used to get a base understanding of how I would implement this code.
+
+The most important of the two testing files is the commandprompt Tests file. I took notes for every particularly important line of code. This was very much an iterative process and you will notice I dropped a few of the libraries (os / sys) from my final code as I found them unnecessary at the end. These libraries were very helpful for me to figure out what was going on and why my code was not running as expected. This was similar to homework 8 I believe where directories are quite particular about being referenced properly and I used the os library a lot to help me figure out where I was at all times. This test file follows my logic flow and tests in a linear manner.
+
+I do not have all my tests recorded for my output file "mylist.txt" as the entire purpose of the file was to write over itself each time you create an audiobook as that is the driver of the ffmpeg processes runs.
+
+My GUI testing was mostly done in the final Audiobook_GUI.py file and I grew that file slowly adding more and more functionality. You can, however, see the seed of my research and testing in the "GUI Testing.py" file in the same directory as my commandprompt testing file.
 
 
 ## Missing Features / What's Next
-Focus on what you didn't get to do, and what you would do if you had more time, or things you would implement in the future. 
+
+Something that I would like to do is figure out a way to get a loading bar in place within the GUI. ffmpeg does show its processes within the console but I thought it would be far too big of a lift to figure out how to parse everything it is doing and translate that into a loading bar. I think this would be a nice touch though.
+
+Another thing I would like to implement is figuring out a way for the converter to send the audiobook to my phone directly somehow. I think this could be done via my FTP server and have the application auto-send whatever file was loaded into the output directory to my FTP, then purge it upon it being successfully uploaded.
+
+One final addition that I would like is to make this entire program an executable so people dont have to download it from GitHub, read my README.md, get ffmpeg, and after all that, run the program. Wrapping it up simply for laypeople to use would be a very nice cherry-on-top. I am not familiar with how this is done so I will leave my program as it stands.
 
 ## Final Reflection
-Write at least a paragraph about your experience in this course. What did you learn? What do you need to do to learn more? Key takeaways? etc.
+
+I came into this course with a fair amount of experience in Java from a course I took over a few months. I think that did assist me with some of the earlier projects where I felt I knew the content but then homework 4, jailbreak, came along and really made me realize how little I knew. I think throughout the course, I was pretty solid with syntax and picking things up regarding the actual mechanics of coding but what I think my personal biggest takeaway from this class, for which I am very thankful for, is how to approach problems. I found frequently find myself getting very frustrated with assignments that I could not get a solution for on the spot. I learned very quickly that getting frustrated and upset is not the way to resolve coding problems and overcome these challenges. I slowly altered my approach and made it a focus in this course to go into every homework with an open mind and understand that no one was expecting me to get an answer immediately and that instead, it is meant to be a challenge that I need to piece a solution for together.
+
+This course has also drilled into my mind the importance of breaking down a problem into tiny, doable steps. Another issue I had going into this course was I wanted to tackle the assignment in the most "efficient" manner possible which would lead me, in later assignments, to hit brick walls where my approach that I thought would be fastest, ended up taking me way more time than if I had broken it up. I have tried to always see if I can find a subset of problems within a larger problem to tackle as small wins motivate me a lot and keep me going; hitting a brick wall is never fun and can get me to spin my gears and just get frustrated which, as I mentioned above, does NOT help the coding process.
+
+Overall, I would say that this course not only taught me python, but most importantly, it taught me how to think like a computer scientist which was something that I was very much missing. I am now able to calmly approach problems and hiccups in my code, analyze the situation, take a step back, and begin my debugging processes without feeling like I failed entierly. I still have a long way to go and often catch myself still trying to bite off more than I can chew but I think this course, at the end of the day, gave me the ability to actually start recognizing my bad CS habits and begin the journey of fixing my approach to coding and problem solving in general.

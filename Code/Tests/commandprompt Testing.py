@@ -20,7 +20,7 @@ with open("Output/mylist.txt","w") as file:
 
 
 
-print(f"Current Working Directory {os.getcwd()}") #What directory are we executing things in rn?
+print(f"Current Working Directory {os.getcwd()}") #What directory are we executing things in right now?
 
 extension = ".m4b"
 subprocess.run([

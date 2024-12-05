@@ -1,7 +1,5 @@
 import subprocess
 
-
-
 def ffmpeg_conversion(audio_files: list, output_name: str):
     '''
     Goal of this function is to get a list of audio files that were selected from the GUI and convert them to a
