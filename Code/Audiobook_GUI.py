@@ -1,3 +1,17 @@
+'''
+This script create a GUI which allows the user to select audio files and concatenate them based on the order in which they were selected. 
+The user will be able to enter a title for the audiobook and that will be the output name of the final file. The finalized file will be
+stored in the /Output/ directory within the folder structure of the workspace.
+
+Dependencies:
+    -ffmpeg (set as PATH variable)
+    -PySimpleGUI (key required, this is free. See README)
+
+Usage:
+Run this script to open the GUI. Enter a name for your finalized audiobook, select the audio files from anywhere on your computer, and click "run".
+'''
+
+
 import PySimpleGUI as sg
 from subprocess_functions import ffmpeg_conversion
 
