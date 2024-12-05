@@ -2,12 +2,12 @@
 
 List of documentation, articles, and other guides that I used to help me put this project together:
 
-- [One](https://phoenixnap.com/kb/ffmpeg-mac)
-- [Two](https://docs.pysimplegui.com/en/latest/documentation/module/elements/)
-- [Three](https://windowsloop.com/install-ffmpeg-windows-10/)
-- [Four](https://trac.ffmpeg.org/wiki/CompilationGuide/macOS)
-- [Five](https://docs.python.org/3/library/subprocess.html#subprocess.run)
-- [Six](https://trac.ffmpeg.org/wiki/Concatenate)
+- [ffmpeg OSX Guide](https://phoenixnap.com/kb/ffmpeg-mac)
+- [PySimpleGUI Documentation](https://docs.pysimplegui.com/en/latest/documentation/module/elements/)
+- [ffmpeg Windows](https://windowsloop.com/install-ffmpeg-windows-10/)
+- [ffmpeg OSX Compilation Commands](https://trac.ffmpeg.org/wiki/CompilationGuide/macOS)
+- [Subprocess Library Documentation](https://docs.python.org/3/library/subprocess.html#subprocess.run)
+- [ffmpeg Commands for concatenation](https://trac.ffmpeg.org/wiki/Concatenate)
 
 
 # Final Project Report
