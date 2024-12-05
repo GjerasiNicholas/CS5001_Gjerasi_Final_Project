@@ -30,16 +30,16 @@ This program allows me to never have to go online and re-learn the ffmpeg comman
 I think one of the key features of this project that I would like to focus on is how it is automating what is normally a pretty annoying process into a super streamlined flow. What would normally take 5-10 minutes now only takes about 1. The program checks for errors in your file selection, auto-writes a list of the files and their directories, and triggers ffmpeg using the subprocess library's functionality. This actually executes things directly in the terminal!
 
 ## Guide
-How do we run your project? What should we do to see it in action? - Note this isn't installing, this is actual use of the project.. If it is a website, you can point towards the gui, use screenshots, etc talking about features. 
 
 Running the program is straightforward. The steps are as follows:
-  1. Open the Audiobook_GUI.py program
-  2. Run the python file
-  3. Enter a book name
-  4. Click "Browse"
-  5. Select your audio files and make sure the chapters are in the correct sequence
-  6. Click "Run"
-  7. In the "Outpu" directory, there should now be a complete audiobook!
+  1. Download and install dependencies listed below in (Installation Instructions)
+  2. Open the Audiobook_GUI.py program
+  3. Run the python file
+  4. Enter a book name
+  5. Click "Browse"
+  6. Select your audio files and make sure the chapters are in the correct sequence
+  7. Click "Run"
+  8. In the "Outpu" directory, there should now be a complete audiobook!
 
 ## Installation Instructions
 
